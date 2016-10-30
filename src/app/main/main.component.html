@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4 search-side">
+    <app-search></app-search>
+
+    </div>
+    <div class="col-xs-8">
+      <div *ngIf="detailActive" >
+
+        <div class="col-md-12" *ngIf="detailType === 'artist'" >
+          <div class="row">
+            <div class="col-md-3">
+              <img src="{{resDetail?.images[0].url}}" alt="" class="img-responsive artist-img">
+            </div>
+            <div class="col-md-9">
+              <h1>{{resDetail?.name}}</h1>
+              <ul class="artist-genres">
+                <li><strong>Generes: </strong></li>
+                <li *ngFor="let genre of resDetail?.genres" >
+                  <span class="label label-success">{{genre}}</span>
+                </li>
+                <br>
+                <li><strong>Followers: </strong>{{resDetail?.followers.total}}</li>
+                <br>
+                <li><strong>Popularity: </strong>{{resDetail?.popularity}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+
+<h1>{{what}}</h1>
+
+<div class="row">
+<div class="col-md-12">
+        <form>
+
+                <div class="input-group search-input">
+                        <input type="text"
+                               class="main-search"
+                               placeholder = 'Search for'
+                               autocomplete="off"
+                               [(ngModel)]="searchStr" name="searchStr"
+                               (keyup)="searchMusic()" (focus)="toggleInput()" (blur)="toggleInput()">
+
+
+                </div>
+
+                <div class="row">
+                        <div class="radios" (click)="check()">
+                                <label *ngFor="let option of searchOptions" [ngClass]="{'active': option === searchFor}">
+                                        <input type="radio"
+                                               name="option"
+                                               [(ngModel)]="searchFor"
+                                               [value]="option">
+
+                                        {{option}}
+                                </label>
+                        </div>
+
+                </div>
+                <div *ngIf="searchFor === 'album'" >
+                        <label for="hipster" class="hipster"
+                               [ngClass]="{'active': hipsterMode}">
+                                <input type="checkbox" name="hipster" id="hipster"
+                                       [(ngModel)]="hipsterMode"
+                                        (click)="check()">
+                                Hipster Mode
+                        </label>
+                </div>
+
+        </form>
+
+</div>
+</div>
+
+<div class="row" *ngIf="showResults()">
+        <div class="col-md-12">
+                <ul  class="result-list" >
+                        <li *ngFor="let artist of searchRes"
+                            class="result-item">
+                                <h3 (click)="onSelected(artist.id)">{{artist.name}}</h3>
+                        </li>
+                </ul>
+        </div>
+</div>
+
+
+<!--<div *ngIf="!hidenWelcome" class="container-fluid welcome-txt"   [ngClass]="{'show': showWelcome }">-->
+        <!--<div class="row">-->
+                <!--<div class="col-12-xs text-center">-->
+                        <!--<h1>Discover new music</h1>-->
+                        <!--<p>Based on Spotify related artists <a href="">algorythm</a></p>-->
+                <!--</div>-->
+        <!--</div>-->
+<!--</div>-->
