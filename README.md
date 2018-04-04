@@ -32,6 +32,7 @@ To get more help on the `angular-cli` use `ng --help` or go check out the [Angul
 
 ## slack notification test 
 - subscribe to repo /github subscribe panwron/spotifyDiscover
-- subscribe inside channel /github subscribe panwron/spotifyDiscover
+- subscribe inside channel: /github subscribe panwron/spotifyDiscover
 - you can only access your own repos. No access to private repos of your organization
+- unsubscribe:  /github subscribe panwron/spotifyDiscover
 
